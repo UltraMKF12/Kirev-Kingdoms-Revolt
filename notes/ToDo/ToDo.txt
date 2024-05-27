@@ -1,0 +1,12 @@
+Valami módot találni a map generálásra/lerakásra.
+Szinezett tileok kellene, vagy valami draw-al betenni a szineket esetleg?
+A lényeg, hogy kattintásra lehessen változtatni, majd az egész egy nagy arrayben lesz tárolva
+A határokat egy fekete vonal fogja jelölni országok közötti pixeleken.
+
+
+// TODO: ZOOM TOWARDS MOUSE
+// The camera needs to move towards the mouse
+// Just enough so the mouse position stays on the position it was
+// Like with panning
+
+// TODO: Normalize camera movement speed

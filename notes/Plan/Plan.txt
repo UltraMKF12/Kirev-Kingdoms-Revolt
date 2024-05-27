@@ -1,0 +1,51 @@
+Négyzetrács alapú játéktér, ahol 4 irányba történik a foglalás, 
+szóval nem lehet diagonálisan mozogni.
+
+Tile - Legkisebb terület neve, minden tileokon alapszik. Minden katona és épület.
+
+Pénz - Minden tile passzív +1 pénzt generál.
+
+Farm - Tilera letehető, ez pézbe kerül megépiteni, de cserébe több pénzt generál. 
+Az ellenség ezt el tudja foglalni.
+Kastély- a körülötte lévő Tileokat védi, mind a 8at. 
+Ez az jelenti, hogy ha egy ellenség a kastély köré merészkedik, 
+akkor csak a kastély fele tud menni, vagy más játékos területére, 
+de a kastélyt nem tudja kikerülni.
+
+Unitok - Peasant, gyenge expendable unit.
+Footman - Átlagos katona
+Knight - Erős katona
+General - Legerősebb katona legtöbb damage és hp-val, 
+de sok pénzbe kerül fenntartani.
+
+A kastély az emberek beveszik, és ha akarják lerombolják, 
+mert pénzbe kerül a fenntartása.
+Ha a játékos kifogy a pénzből, akkor a katonák elkezdenek éhezni 
+és ha sokáig fennmarad az adósság a kastélyok hpja is elkezd fogyni.
+A kastélyok lemennek akár 10-20% hpra is, míg a katonák szépen 
+otthagyják a sereget, mert a hp egyben morál is.
+
+Mint antiyoy-ban, itt is egy "királyság" az összekötött területeket 
+jelképezi, ez azt jelenti, hogy ha a királyság ketté lett választva, 
+akkor az külön bevétellel rendelkezik, ezért jó taktika a királyságok 
+kettévágása.
+
+Többféle kastély van, van ami 4,8,12,20 területet védő
+Egy kastély romokban lesz átatdva ami azt jelenit, hogy max 25-50%
+hpja lehet csak, és meg kell javítani, de ha folyamatosan megvan hódítva
+javítás nélkül, akkor összeomlik.
+A játék körökre van osztva.
+
+Minden unit kb ugyanannyi tilet tud mozogni a mapon.
+
+Tervezett funkciók:
+-Íjászok, amik 1 tile-al többre tudnak lőni, és a front mögött tudnak
+maradni, vagy bemennek egy kastélyba ahonnan nem tudják őket sebezni, 
+így kastély védők lesznek.
+-Városok, ezek termelik a katonának felhasználható max népességet. 
+Szóval kell város, hogy több katonát lehessen eltartani. 
+Ez azt jelenti, hogy kell pénz, hogy katonák maradjanak és kell népesség, 
+hogy katonákat lehessen felbérelni. Játékügyileg ez ilyen modulokba történik,
+és több modul egymás mellett jobb eredményeket ad, de egyre drágább, 
+így természetes módon több város lesz a mapon, egy város meg a főváros.
+-Szimpla diplomácia lehetőség, háború, béke.
