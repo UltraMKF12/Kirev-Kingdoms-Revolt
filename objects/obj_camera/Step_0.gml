@@ -13,11 +13,32 @@ var _pan_button = mouse_check_button(mb_left);
 var _mwheel = mouse_wheel_up() - mouse_wheel_down();
 if _mwheel != 0
 {
+	// Zoom to mouse location
+	// Because camera is in the middle, the camera should only move /2 of the distance.
+	// Zooming from 320 is 1, 480:1.5, 640:2, 800:2.5, 960:3
+	// _pixel_ratio makes sure we don't overshoot, at bigger camera resolutions we need
+	// to move less pixels to keep the mouse over specific position.
+	// TL;DR I have no fucking idea how the math works, I wasted 3 hours trying to find an algorithm by brute force.
+	if _mwheel > 0 and camera_target_w > zoom_min_w
+	{
+		var _pixel_ratio = _camera_w / zoom_w_change / 2;
+		var _distance_x = ((mouse_x - x) / 2) / _pixel_ratio;
+		var _distance_y = ((mouse_y - y) / 2) / _pixel_ratio;
+		
+		camera_target_x += _distance_x;
+		camera_target_y += _distance_y;
+		
+		show_debug_message($"{_camera_w}");
+	}
+	
+	// Zoom with mouse wheel
 	camera_target_w -= _mwheel * zoom_w_change;
 	camera_target_h -= _mwheel * zoom_h_change;
 	
 	camera_target_w = clamp(camera_target_w, zoom_min_w, zoom_max_w);
 	camera_target_h = clamp(camera_target_h, zoom_min_h, zoom_max_h);
+	
+	
 }
 
 // Smooth zoom
