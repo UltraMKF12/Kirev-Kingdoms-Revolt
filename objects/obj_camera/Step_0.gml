@@ -6,7 +6,7 @@ var _vertical = keyboard_check(ord("W")) - keyboard_check(ord("S"));
 
 var _current_mouse_x = device_mouse_x_to_gui(0);
 var _current_mouse_y = device_mouse_y_to_gui(0);
-var _pan_button = mouse_check_button(mb_left);
+var _pan_button = mouse_check_button(mb_right) or mouse_check_button(mb_middle);
 
 
 /// -----[Zoom]-----
@@ -27,8 +27,6 @@ if _mwheel != 0
 		
 		camera_target_x += _distance_x;
 		camera_target_y += _distance_y;
-		
-		show_debug_message($"{_camera_w}");
 	}
 	
 	// Zoom with mouse wheel

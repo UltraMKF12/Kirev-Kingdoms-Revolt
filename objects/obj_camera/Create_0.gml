@@ -1,3 +1,5 @@
+sprite_index = -1; // Hide the sprite
+
 view_visible[0] = true;
 view_enabled = true;
 
@@ -16,6 +18,10 @@ window_set_position(display_get_width()/2 - res_w/2, display_get_height()/2 - re
 surface_resize(application_surface, res_w, res_h);
 display_set_gui_size(res_w, res_h);
 
+// Center the camera
+x = room_width / 2;
+y = room_height / 2;
+camera_set_view_pos(camera, room_width/2, room_height/2); 
 
 // Variables
 camera_target_w = camera_get_view_width(camera);
@@ -44,5 +50,3 @@ movement_smoothing = 0.1;
 
 previous_mouse_x = device_mouse_x_to_gui(0);
 previous_mouse_y = device_mouse_y_to_gui(0);
-
-depth = -100; // Show above everything
