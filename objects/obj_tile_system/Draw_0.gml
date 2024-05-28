@@ -42,8 +42,29 @@ if not surface_exists(border_surface)
 		}
 	}
 
-	draw_set_color(c_white);
+	
 	surface_reset_target();
 }
 
 draw_surface(border_surface, 0, 0);
+
+// Selection
+if selected_group != -1
+{
+	draw_set_alpha(0.5);
+	draw_set_color(c_yellow);
+	
+	for (var _i = 0; _i < tilemap_size; _i++)
+	{
+		for(var _j = 0; _j < tilemap_size; _j++)
+		{
+			if game_map[_i][_j].group == selected_group
+			{
+				draw_rectangle(_i * tile_size, _j*tile_size, _i*tile_size + tile_size-1, _j*tile_size + tile_size-1, false);
+			}
+		}
+	}
+	
+	draw_set_alpha(1);
+	draw_set_color(c_white);
+}

@@ -3,9 +3,7 @@ mouse_tile_y = mouse_y >= 0 ? mouse_y div tile_size : -1;
 
 if mouse_check_button_pressed(mb_left)
 {
-	var _color = floor(random_range(1, 9));
-	recursive_fill(mouse_tile_x, mouse_tile_y, _color);
-	recalculate_borders();
+	selected_group = game_map[mouse_tile_x][mouse_tile_y].group;
 }
 
 if keyboard_check(vk_control)
