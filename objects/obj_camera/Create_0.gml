@@ -45,8 +45,8 @@ move_speed_max = 15;
 pan_speed_min = zoom_min_w / res_w;
 pan_speed_max = zoom_max_w / res_w;
 
-zoom_smoothing = 0.1;
-movement_smoothing = 0.1;
+zoom_smoothing = 0.12;
+movement_smoothing = 0.12;
 
 previous_mouse_x = device_mouse_x_to_gui(0);
 previous_mouse_y = device_mouse_y_to_gui(0);

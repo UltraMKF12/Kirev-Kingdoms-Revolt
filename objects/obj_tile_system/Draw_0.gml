@@ -1,38 +1,49 @@
 /// @description Draw borders
 
-draw_set_color(c_black);
 
-for (var _i = 0; _i < tilemap_size; _i++)
+// Surface is used for performance reasons
+if not surface_exists(border_surface)
 {
-	for(var _j = 0; _j < tilemap_size; _j++)
+	border_surface = surface_create(room_width, room_height);
+	surface_set_target(border_surface);
+	draw_clear_alpha(c_black, 0);
+	
+	draw_set_color(c_black);
+	for (var _i = 0; _i < tilemap_size; _i++)
 	{
-		if game_map[_i][_j][0] != 0
+		for(var _j = 0; _j < tilemap_size; _j++)
 		{
-			// Top
-			if game_map[_i][_j][1]
+			if game_map[_i][_j].tile != 0
 			{
-				draw_rectangle(_i*tile_size, _j*tile_size, _i*tile_size+tile_size-1, _j*tile_size, false);
-			}
+				// Top
+				if game_map[_i][_j].top
+				{
+					draw_rectangle(_i*tile_size, _j*tile_size, _i*tile_size+tile_size-1, _j*tile_size, false);
+				}
 			
-			// Bottom
-			if game_map[_i][_j][3]
-			{
-				draw_rectangle(_i*tile_size, _j*tile_size+tile_size, _i*tile_size+tile_size-1, _j*tile_size+tile_size, false);
-			}
+				// Bottom
+				if game_map[_i][_j].bottom
+				{
+					draw_rectangle(_i*tile_size, _j*tile_size+tile_size, _i*tile_size+tile_size-1, _j*tile_size+tile_size, false);
+				}
 			
-			// Left
-			if game_map[_i][_j][4]
-			{
-				draw_rectangle(_i*tile_size, _j*tile_size, _i*tile_size, _j*tile_size+tile_size, false);
-			}
+				// Left
+				if game_map[_i][_j].left
+				{
+					draw_rectangle(_i*tile_size, _j*tile_size, _i*tile_size, _j*tile_size+tile_size, false);
+				}
 			
-			// Right
-			if game_map[_i][_j][2]
-			{
-				draw_rectangle(_i*tile_size+tile_size, _j*tile_size, _i*tile_size+tile_size, _j*tile_size+tile_size, false);
+				// Right
+				if game_map[_i][_j].right
+				{
+					draw_rectangle(_i*tile_size+tile_size, _j*tile_size, _i*tile_size+tile_size, _j*tile_size+tile_size, false);
+				}
 			}
 		}
 	}
+
+	draw_set_color(c_white);
+	surface_reset_target();
 }
 
-draw_set_color(c_white);
+draw_surface(border_surface, 0, 0);

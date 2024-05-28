@@ -1,20 +1,35 @@
-var _x = mouse_x div tile_size;
-var _y = mouse_y div tile_size;
+mouse_tile_x = mouse_x >= 0 ? mouse_x div tile_size : -1;
+mouse_tile_y = mouse_y >= 0 ? mouse_y div tile_size : -1;
 
 if mouse_check_button_pressed(mb_left)
 {
 	var _color = floor(random_range(1, 9));
-	recursive_fill(_x, _y, _color);
+	recursive_fill(mouse_tile_x, mouse_tile_y, _color);
 	recalculate_borders();
 }
 
 if keyboard_check(vk_control)
 {
-	change_tile(_x, _y, 0);
+	change_tile(mouse_tile_x, mouse_tile_y, 0);
 }
 
-if keyboard_check(vk_space)
+if keyboard_check(ord("1"))
 {
-	var _color = floor(random_range(1, 9));
-	change_tile(_x, _y, _color);
+	var _color = 1;
+	change_tile(mouse_tile_x, mouse_tile_y, _color);
+}
+if keyboard_check(ord("2"))
+{
+	var _color = 2;
+	change_tile(mouse_tile_x, mouse_tile_y, _color);
+}
+if keyboard_check(ord("3"))
+{
+	var _color = 3;
+	change_tile(mouse_tile_x, mouse_tile_y, _color);
+}
+if keyboard_check(ord("4"))
+{
+	var _color = 4;
+	change_tile(mouse_tile_x, mouse_tile_y, _color);
 }
