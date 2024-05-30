@@ -1,6 +1,9 @@
 mouse_tile_x = mouse_x >= 0 ? mouse_x div tile_size : -1;
 mouse_tile_y = mouse_y >= 0 ? mouse_y div tile_size : -1;
 
+if mouse_tile_x == -1 or mouse_tile_y == -1 
+or mouse_tile_x >= tilemap_size or mouse_tile_y >= tilemap_size exit;
+
 if mouse_check_button_pressed(mb_left)
 {
 	selected_group = game_map[mouse_tile_x][mouse_tile_y].group;
