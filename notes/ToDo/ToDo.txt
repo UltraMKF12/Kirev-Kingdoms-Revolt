@@ -1,12 +1,62 @@
-Valami módot találni a map generálásra/lerakásra.
-Szinezett tileok kellene, vagy valami draw-al betenni a szineket esetleg?
-A lényeg, hogy kattintásra lehessen változtatni, majd az egész egy nagy arrayben lesz tárolva
-A határokat egy fekete vonal fogja jelölni országok közötti pixeleken.
+Városok. Többféle város sprite, esetleg autosprite, pár pixelnyi ház
+és utak. Vagy többféle sprite, de kódban való legenerálás hogy
+nem kötődik minden mindenhez. Azaz minden út minden úthoz.
+Egy ideig katonákat kell tartani bennük, különben fellázadnak és az összes város tile
+és néhány körülötte levő fellázad.
+
+Kastélyok. Bordert adnak egy tilenak, és védig a mellettük lévő
+tileokat úgy, hogy ha bármelyik enemy rájuk lép, 
+akkor onnan csak vagy visszalép saját területre, vagy támadni tud.
+A kastélyok random eséllyel elfoglalják az el nem foglalt ellenséges területeket.
+
+Farmok, supplyt, élelmet termelnek, hogy a katonák jól regenerálódjanak harcon kivül
+és ne menjen le a hpjuk folyamatosan out of supply miatt.
+
+Fegyvergyárak, fegyvereket gyártanak, hogy erősebb katonákat lehessen besorozni.
+
+Population - Maximum számú katona. Unit és kastély ezt használják.
+Equipmet - Max számú equipment a katonákra, nagyobb szintű katona több equipmentet igényel,
+ugyanúgy a kastélyok.
+Farm - Supply. Kastélynak és Unitoknak az étel ellátása, 
+ha nincs étel, akkor elkezdenek éhezni.
+Minél nagyobb a hiány annál kevesebb a max hp, majd egy idő után halálra éheznek.
+
+Sima tileok adnak pár százalékot Population és Farmba, de a város+Farm többet adnak.
+ARANY - Városok termelik, mint bevett adó. Pénzbe kerül további házakat épiteni és
+bármi mást építeni. Unitok felbérelése is pénzbe kerül, meg a fenntartásuk is.
+
+A háború egy drága dolog. A játék szablyai engedélyezik a city statek létezését, azaz
+olyan országok amik befalazták magukat védelemmel minimális katonájuk van és minden pénz
+védelemre megy.
+Többnyire csak 1 városuk van - Ez lehet AI behaviour logika is.
+Minél több a katona annál kevesebb a védő erő.
+
+Ha pl katonák be lettek kerítve és legyőzték őket. Akkor a population/equipment nem ugrik
+egyből maxra, hanem a nulláról elkezd növekedni max fele. Szóval ha 0 avaliable population
+van, akkor szépen lassan, pár kör alatt tud csak felmenni rendes értékre, ezzel szimulálva
+azt, hogy sok fontos személy elvesztedd az ország. Van population surplus, amikor
+tilegroupok egyesülnek, pl 10 a max, de 12 lesz az egyesülés miatt.
+A population nem növekszik az elhasznált értéktől fennteb, mert azok az emberek folyamatosan
+cserélődnek öregség, betegség és hasonlók miatt.
+
+Unitok:
+Paraszt
+Lándzsás
+Kardos
+Lovag
+Íjász - Eltud bújni fortokban és default 9 tile radious + Extended +
+fort radius tudnak támadni és nem lehet őket támadni ameddig a fortban vannak.
+Csatatéren meg eggyel nagyobb a rangeük mint a többi katonának, azaz a hátuk mögött
+maradva lövöldözhetnek.
 
 
-// TODO: ZOOM TOWARDS MOUSE
-// The camera needs to move towards the mouse
-// Just enough so the mouse position stays on the position it was
-// Like with panning
+-------[Ui]--------
+Alul 2 gomb, Épületek és Katonák.
+Utánna megjelenik egy fekete transparent sáv alul ami jelzi az épithető dolgokat
+A gold kijelezhető úgy, hogy egy saját groupra kattintva  megjelenik bal oldalt egy
+ismertető a fontosabb adatokkal, Pop, Eq, Supply, Money. Katonák száma, fortok száma,
+Elérhető nyerasnyagok száma stb...
 
-// TODO: Normalize camera movement speed
+Valami jelző arra, hogy a játékos köre van és tudja mozogni a unitjait.
+A unitokat kijelölve elsötétül a kép és csak a helyes mozdulatokat lehet választani, hogy
+hova menjen egy unit pathfindingal.
