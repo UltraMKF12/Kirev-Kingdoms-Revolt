@@ -60,3 +60,5 @@ Elérhető nyerasnyagok száma stb...
 Valami jelző arra, hogy a játékos köre van és tudja mozogni a unitjait.
 A unitokat kijelölve elsötétül a kép és csak a helyes mozdulatokat lehet választani, hogy
 hova menjen egy unit pathfindingal.
+
+

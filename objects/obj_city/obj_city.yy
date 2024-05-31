@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_city_capital",
+  "%Name":"obj_city",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_city_capital",
+  "name":"obj_city",
   "overriddenProperties":[],
   "parent":{
     "name":"Tiles",
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_city_capital",
-    "path":"sprites/spr_city_capital/spr_city_capital.yy",
+    "name":"spr_city",
+    "path":"sprites/spr_city/spr_city.yy",
   },
   "spriteMaskId":null,
   "visible":true,
