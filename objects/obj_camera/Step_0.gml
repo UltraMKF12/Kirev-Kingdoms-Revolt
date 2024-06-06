@@ -18,7 +18,6 @@ if _mwheel != 0
 	// Zooming from 320 is 1, 480:1.5, 640:2, 800:2.5, 960:3
 	// _pixel_ratio makes sure we don't overshoot, at bigger camera resolutions we need
 	// to move less pixels to keep the mouse over specific position.
-	// TL;DR I have no fucking idea how the math works, I wasted 3 hours trying to find an algorithm by brute force.
 	if _mwheel > 0 and camera_target_w > zoom_min_w
 	{
 		var _pixel_ratio = _camera_w / zoom_w_change / 2;
